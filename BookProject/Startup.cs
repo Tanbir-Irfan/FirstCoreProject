@@ -16,6 +16,8 @@ namespace BookProject
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
+            services.AddRazorPages().AddRazorRuntimeCompilation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -26,14 +28,22 @@ namespace BookProject
                 app.UseDeveloperExceptionPage();
             }
 
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Hello From Banngladesh");
+            //    await next();
+            //    await context.Response.WriteAsync("Hello From Banngladesh Response");
+            //});
+
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync(env.EnvironmentName);
+                //});
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }
