@@ -1,10 +1,18 @@
 ﻿using System;
+using Microsoft.AspNetCore.Razor.TagHelpers;
+
 namespace BookProject.Helper
 {
-    public class CustomEmailTagHelper
+    public class CustomEmailTagHelper : TagHelper 
     {
-        public CustomEmailTagHelper()
+        public string MyEmail { get; set; }
+        public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            output.TagName = "a";
+            output.Attributes.SetAttribute("href", $"mailto:{MyEmail}");
+            //output.Attributes.SetAttribute("href", "mailto:tanverirfan5@gmail.com");
+            output.Attributes.Add("id", "unique");
+            output.Content.SetContent("My-Email");
         }
     }
 }

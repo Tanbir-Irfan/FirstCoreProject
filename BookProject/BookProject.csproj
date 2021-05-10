@@ -2,12 +2,52 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DockerComposeProjectPath>../docker-compose.dcproj</DockerComposeProjectPath>
+    <UserSecretsId>fc8bcde6-5fee-465a-9539-ec58e98a5bdf</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.4">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.5" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Repository\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Home\" />
+    <Folder Include="Views\Book\" />
+    <Folder Include="Views\Shared\" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\css\" />
+    <Folder Include="wwwroot\js\" />
+    <Folder Include="StaticFiles\css\" />
+    <Folder Include="StaticFiles\images\" />
+    <Folder Include="Data\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Helper\" />
+    <Folder Include="wwwroot\book-img\" />
+    <Folder Include="wwwroot\book-img\cover\" />
+    <Folder Include="wwwroot\book-img\gallery\" />
+    <Folder Include="wwwroot\book-pdf\" />
+    <Folder Include="Component\" />
+    <Folder Include="Views\Shared\Components\" />
+    <Folder Include="Views\Shared\Components\TopBooks\" />
+    <Folder Include="Views\Account\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="wwwroot\lib\bootstrap\css\bootstrap.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>

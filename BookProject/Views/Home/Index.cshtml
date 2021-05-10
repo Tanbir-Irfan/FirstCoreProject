@@ -1,5 +1,92 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@model BookModel
+@*@inject BookProject.Repository.IBookRepository _bookRepository*@
+@*@{
+        var data = ViewBag.Data;
+    }*@
+
+@*@{
+        var data = ViewData["book"] as BookModel;
+    }*@
+
+@*@{
+        ViewData["Title"] = "Home Page";
+    }*@
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="display-4">Welcome To BookStore</h1>
+
+        <!--<environment names="Development">
+            <h3>Development</h3>
+        </environment>-->
+        @*include and names are same*@
+        <!--<environment include="Production">
+            <h3>Production</h3>
+        </environment>
+
+        <environment exclude="Production">
+            <h3>Production</h3>
+        </environment>-->
+        @*<environment names="Production, Staging">
+                <h3>Production</h3>
+            </environment>*@
+
+        @*ViewBag*@
+        @*@ViewBag.Title*@
+        @*@data.Id @data.Name*@
+
+        @*ViewData*@
+        @*@ViewData["Id"]*@
+        @*@data.Id @data.Author*@
+        <p class="lead text-muted"> This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <p>
+            <a class="btn btn-primary my-2" href="#" role="button">Search Book</a>
+        </p>
+        @*@foreach (var item in await _bookRepository.GetAllBooks())
+        {
+            <h2>@item.Title</h2> //  Dependenncy Injection
+        }*@
+    </div>
+</section>
+<div class="py-5 bg-light">
+    <div class="container">
+        @*<h3 class="h3">Top Books</h3>*@
+        <big>Top Books</big>
+        @*<p big>Top book using attribute</p>*@
+
+        @await Component.InvokeAsync("TopBooks", new { count = 3});
+        @*<vc:top-books count="3"></vc:top-books>*@
+        
+        <!--<div class="row">
+            <div class="col-md-4">-->
+                @*<partial name="../Shared/_bookThumbnail.cshtml" model="new BookModel()" />*@
+
+                @*@Html.Partial("../Shared/_bookThumbnail.cshtml", new BookModel())*@
+                @*@{
+            Html.RenderPartial("../Shared/_bookThumbnail.cshtml", new BookModel());
+        }*@
+                <!--@{
+                    await Html.RenderPartialAsync("../Shared/_bookThumbnail.cshtml", new BookModel());
+                }
+
+            </div>
+            <div class="col-md-4">-->
+                @*<partial name="../Shared/_bookThumbnail.cshtml" model="new BookModel()" />*@
+                <!--@await Html.PartialAsync("../Shared/_bookThumbnail.cshtml", new BookModel())
+            </div>
+            <div class="col-md-4">-->
+                @*<partial name="../Shared/_bookThumbnail.cshtml" model="new BookModel()" />*@
+                <!--@{
+                    await Html.RenderPartialAsync("../Shared/_bookThumbnail.cshtml", new BookModel());
+                }
+            </div>
+
+        </div>-->
+    </div>
+</div>
+
+@section scripts{
+    <script>$(document).ready(function () {
+            //alert("My name is Irfan");
+        });</script>
 }

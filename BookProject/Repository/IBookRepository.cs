@@ -11,5 +11,6 @@ namespace BookProject.Repository
         Task<BookModel> GetBookByID(int id);
         Task<List<BookModel>> GetTopBooksAsync(int count);
         List<BookModel> SearchBook(string title, string authorName);
+        string BookLogoName();
     }
 }
